@@ -15,6 +15,10 @@
     <artifactId>jarta-thought-service-server</artifactId>
     <version>1649.1-SNAPSHOT</version>
 
+    <properties>
+        <thoughtservice.thrift.version>1649.1-SNAPSHOT</thoughtservice.thrift.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -41,6 +45,12 @@
             <artifactId>finatra-thrift_${scala.compat.version}</artifactId>
             <scope>test</scope>
             <type>test-jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>jarta</groupId>
+            <artifactId>jarta-thought-service-thrift</artifactId>
+            <version>${thoughtservice.thrift.version}</version>
         </dependency>
     </dependencies>
 

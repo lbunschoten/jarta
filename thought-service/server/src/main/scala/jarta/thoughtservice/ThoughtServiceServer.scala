@@ -18,5 +18,6 @@ trait FinatraThoughtServiceServer extends ThriftServer {
       .filter[ThriftMDCFilter]
       .filter[AccessLoggingFilter]
       .filter[StatsFilter]
+      .add[ThoughtService]
   }
 }

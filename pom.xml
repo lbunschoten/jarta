@@ -19,6 +19,7 @@
         <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
         <finatra.version>2.6.0</finatra.version>
         <logback.version>1.1.7</logback.version>
+        <scrooge.version>4.12.0</scrooge.version>
 
         <java-lang.source>1.8</java-lang.source>
         <java-lang.target>1.8</java-lang.target>
@@ -75,11 +76,16 @@
                 <type>test-jar</type>
                 <version>${finatra.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.twitter</groupId>
+                <artifactId>scrooge-core_${scala.compat.version}</artifactId>
+                <version>${scrooge.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
-        <!-- To define the plugin version in your parent POM -->
         <pluginManagement>
             <plugins>
                 <plugin>
