@@ -14,13 +14,33 @@
     </scm>
 
     <properties>
-        <scala.version>2.12.1</scala.version>
+        <scala.version>2.11.7</scala.version>
+        <scala.compat.version>2.11</scala.compat.version>
         <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+        <finatra.version>2.6.0</finatra.version>
+        <logback.version>1.1.7</logback.version>
+
+        <java-lang.source>1.8</java-lang.source>
+        <java-lang.target>1.8</java-lang.target>
+        <java-lang.encoding>UTF-8</java-lang.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <modules>
-        <module>thought-service</module>
-    </modules>
+    <repositories>
+        <repository>
+            <id>twitter-repo</id>
+            <name>twitter-repo</name>
+            <url>https://maven.twttr.com</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>twitter-repo</id>
+            <name>twitter-repo</name>
+            <url>https://maven.twttr.com</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -35,6 +55,26 @@
                 <artifactId>scala-compiler</artifactId>
                 <version>${scala.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.twitter</groupId>
+                <artifactId>finatra-thrift_${scala.compat.version}</artifactId>
+                <version>${finatra.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.twitter</groupId>
+                <artifactId>finatra-thrift_${scala.compat.version}</artifactId>
+                <scope>test</scope>
+                <type>test-jar</type>
+                <version>${finatra.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -48,8 +88,17 @@
                     <version>${scala-maven-plugin.version}</version>
                     <executions>
                         <execution>
+                            <id>scala-compile-sources</id>
+                            <phase>process-resources</phase>
                             <goals>
+                                <goal>add-source</goal>
                                 <goal>compile</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>scala-compile-tests</id>
+                            <phase>process-test-resources</phase>
+                            <goals>
                                 <goal>testCompile</goal>
                             </goals>
                         </execution>
