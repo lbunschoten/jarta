@@ -20,6 +20,8 @@
         <finatra.version>2.6.0</finatra.version>
         <logback.version>1.1.7</logback.version>
         <scrooge.version>4.12.0</scrooge.version>
+        <slick.version>3.1.1</slick.version>
+        <mysql-connector.version>6.0.5</mysql-connector.version>
 
         <java-lang.source>1.8</java-lang.source>
         <java-lang.target>1.8</java-lang.target>
@@ -81,6 +83,18 @@
                 <groupId>com.twitter</groupId>
                 <artifactId>scrooge-core_${scala.compat.version}</artifactId>
                 <version>${scrooge.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.typesafe.slick</groupId>
+                <artifactId>slick_${scala.compat.version}</artifactId>
+                <version>${slick.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
