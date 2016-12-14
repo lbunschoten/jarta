@@ -8,7 +8,7 @@ struct Thought {
 service ThoughtService {
     Thought getThought(1: i32 id)
 
-    i32 insertThought(1: Thought thought)
+    Thought insertThought(1: Thought thought)
 
     void deleteThought(1: i32 id)
 }

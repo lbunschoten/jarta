@@ -20,6 +20,8 @@
     </properties>
 
     <dependencies>
+        <!-- Scala dependencies -->
+
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -29,6 +31,8 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-compiler</artifactId>
         </dependency>
+
+        <!-- Third party dependencies -->
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -48,9 +52,27 @@
         </dependency>
 
         <dependency>
+            <groupId>com.typesafe.slick</groupId>
+            <artifactId>slick_${scala.compat.version}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- Jarta dependencies -->
+
+        <dependency>
             <groupId>jarta</groupId>
             <artifactId>jarta-thought-service-thrift</artifactId>
             <version>${thoughtservice.thrift.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jarta</groupId>
+            <artifactId>jarta-converters</artifactId>
+            <version>1649.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
