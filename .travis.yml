@@ -9,3 +9,6 @@ env:
   - PROJECT_DIR=thought-service/thrift
   - PROJECT_DIR=thought-service/server
 script: cd $PROJECT_DIR && mvn test
+cache:
+  directories:
+    - $HOME/.m2
