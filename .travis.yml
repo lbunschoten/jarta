@@ -1,3 +1,7 @@
 language: scala
 scala:
   - 2.11.7
+env:
+  - PROJECT_DIR=.
+  - PROJECT_DIR=converters
+script: cd $PROJECT_DIR && mvn test
