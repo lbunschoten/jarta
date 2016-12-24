@@ -1,8 +1,11 @@
 language: scala
 scala:
   - 2.11.7
+jdk:
+  - oraclejdk8
 env:
   - PROJECT_DIR=.
   - PROJECT_DIR=converters
-  - PROJECT_DIR=thought-service
+  - PROJECT_DIR=thought-service/thrift
+  - PROJECT_DIR=thought-service/server
 script: cd $PROJECT_DIR && mvn test
