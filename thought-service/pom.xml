@@ -17,8 +17,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>server</module>
         <module>thrift</module>
+        <module>server</module>
     </modules>
 
 </project>
