@@ -24,6 +24,7 @@
         <mysql-connector.version>6.0.5</mysql-connector.version>
         <scalatest.version>3.0.1</scalatest.version>
         <mockito.version>2.3.11</mockito.version>
+
         <java-lang.source>1.8</java-lang.source>
         <java-lang.target>1.8</java-lang.target>
         <java-lang.encoding>UTF-8</java-lang.encoding>
