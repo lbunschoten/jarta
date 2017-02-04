@@ -7,15 +7,15 @@ import jarta.thoughtservice.thriftscala.ThoughtService.{BaseServiceIface, Delete
 
 class ThoughtService(repository: ThoughtRepository) extends Controller with BaseServiceIface {
 
-  override def insertThought = handle(InsertThought) { args: InsertThought.Args =>
+  override val insertThought = handle(InsertThought) { args: InsertThought.Args =>
     repository.insert(args.thought).toTwitterFuture
   }
 
-  override def getThought = handle(GetThought) { args: GetThought.Args =>
+  override val getThought = handle(GetThought) { args: GetThought.Args =>
     repository.select(args.id).toTwitterFuture.map(_.orNull)
   }
 
-  override def deleteThought = handle(DeleteThought) { args: DeleteThought.Args =>
+  override val deleteThought = handle(DeleteThought) { args: DeleteThought.Args =>
     repository.delete(args.id).toTwitterFuture.map(_ => Unit)
   }
 
