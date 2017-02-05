@@ -77,6 +77,12 @@
 
             <dependency>
                 <groupId>com.twitter</groupId>
+                <artifactId>finatra-http_${scala.compat.version}</artifactId>
+                <version>${finatra.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.twitter</groupId>
                 <artifactId>finatra-thrift_${scala.compat.version}</artifactId>
                 <scope>test</scope>
                 <type>test-jar</type>
