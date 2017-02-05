@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jarta-base</artifactId>
+        <groupId>jarta</groupId>
+        <version>1649.1-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>apps-bff</artifactId>
+    <version>1705.1-SNAPSHOT</version>
+
+    <properties>
+        <thoughtservice.thrift.version>1649.1-SNAPSHOT</thoughtservice.thrift.version>
+    </properties>
+
+    <dependencies>
+        <!-- Scala dependencies -->
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+        </dependency>
+
+        <!-- Third party dependencies -->
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>finatra-thrift_${scala.compat.version}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>finatra-http_${scala.compat.version}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>finatra-thrift_${scala.compat.version}</artifactId>
+            <scope>test</scope>
+            <type>test-jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.compat.version}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        </dependency>
+
+        <!-- Jarta dependencies -->
+
+        <dependency>
+            <groupId>jarta</groupId>
+            <artifactId>jarta-thought-service-thrift</artifactId>
+            <version>${thoughtservice.thrift.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
