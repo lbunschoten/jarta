@@ -1,6 +1,5 @@
 import java.net.InetSocketAddress
 
-import com.twitter.finagle.Http
 import com.twitter.finagle.builder.ClientBuilder
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finagle.thrift.ThriftClientFramedCodec
