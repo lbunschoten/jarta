@@ -1,5 +1,6 @@
 import java.net.InetSocketAddress
 
+import com.twitter.finagle.Http
 import com.twitter.finagle.builder.ClientBuilder
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finagle.thrift.ThriftClientFramedCodec
@@ -9,10 +10,18 @@ import com.twitter.finatra.http.routing.HttpRouter
 import jarta.thoughtservice.thriftscala.ThoughtService
 import thought.ThoughtController
 
+object AppsBffServer extends HttpServer {
 
-class AppsBffServer extends HttpServer {
+  override protected def disableAdminHttpServer = true
 
-  import AppsBffServerMain.thoughtService
+  private def thriftClientBuilder(port: Int) = ClientBuilder()
+    .hosts(Seq(new InetSocketAddress(port)))
+    .codec(ThriftClientFramedCodec())
+    .hostConnectionLimit(1)
+    .failFast(false)
+    .build()
+
+  def thoughtService: ThoughtService.FutureIface = new ThoughtService.FinagledClient(thriftClientBuilder(port = 9997))
 
   override protected def configureHttp(router: HttpRouter): Unit = {
     router
@@ -21,17 +30,5 @@ class AppsBffServer extends HttpServer {
       .filter[CommonFilters]
       .add(new ThoughtController(thoughtService))
   }
-
-}
-
-object AppsBffServerMain extends AppsBffServer {
-
-  private val thoughtServiceBuilder = ClientBuilder()
-    .hosts(Seq(new InetSocketAddress(9999)))
-    .codec(ThriftClientFramedCodec())
-    .hostConnectionLimit(1)
-    .build()
-
-  lazy val thoughtService: ThoughtService.FutureIface = new ThoughtService.FinagledClient(thoughtServiceBuilder)
 
 }

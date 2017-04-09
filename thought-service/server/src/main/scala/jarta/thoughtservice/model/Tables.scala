@@ -1,5 +1,7 @@
 package jarta.thoughtservice.model
 
+import slick.lifted.ProvenShape
+
 object Tables extends {
   val profile = slick.driver.MySQLDriver
 } with Tables
@@ -13,11 +15,11 @@ trait Tables {
 
   class Thought(tag: Tag) extends Table[ThoughtRow](tag, "thoughts") {
 
-    def id = column[Int]("id", O.AutoInc, O.PrimaryKey)
+    def id: Rep[Int] = column[Int]("id", O.AutoInc, O.PrimaryKey)
 
-    def description = column[String]("description")
+    def description: Rep[String] = column[String]("description")
 
-    def * = (id, description) <> (ThoughtRow.tupled, ThoughtRow.unapply)
+    def * : ProvenShape[ThoughtRow] = (id, description) <> (ThoughtRow.tupled, ThoughtRow.unapply)
 
   }
 
