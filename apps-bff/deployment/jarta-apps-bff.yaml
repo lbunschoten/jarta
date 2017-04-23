@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: jarta-apps-bff
-          image: "jarta-apps-bff:1.1"
+          image: "jarta-apps-bff:1.2"

@@ -4,4 +4,4 @@ EXPOSE 8891
 
 COPY ./target/apps-bff-1705.1-SNAPSHOT-jar-with-dependencies.jar jarta.jar
 
-ENTRYPOINT ["java", "-cp", "jarta.jar", "AppsBffServer"]
+ENTRYPOINT ["java", "-cp", "jarta.jar", "AppsBffServer", "-thought.service.host=jarta-thought-service"]
