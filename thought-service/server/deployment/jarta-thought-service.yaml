@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: jarta-thought-service
-          image: "jarta-thought-service:1.0"
+          image: "jarta-thought-service:1.1"
           ports:
             - name: http
               containerPort: 9997
@@ -21,7 +21,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: jarta
+  name: jarta-thought-service
 spec:
   selector:
     app: jarta
