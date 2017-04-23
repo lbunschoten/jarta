@@ -12,9 +12,10 @@ import thought.ThoughtController
 object AppsBffServer extends HttpServer {
 
   override protected def disableAdminHttpServer = true
+  override val defaultFinatraHttpPort = ":8891"
 
   private def thriftClientBuilder(port: Int) = ClientBuilder()
-    .hosts(Seq(new InetSocketAddress(port)))
+    .hosts(Seq(new InetSocketAddress("jarta", port)))
     .codec(ThriftClientFramedCodec())
     .hostConnectionLimit(1)
     .failFast(false)

@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jarta-apps-bff
+spec:
+  selector:
+    app: jarta
+    tier: frontend
+  ports:
+    - protocol: "TCP"
+      port: 8891
+      targetPort: 8891
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: jarta-apps-bff
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jarta
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: jarta-apps-bff
+          image: "jarta-apps-bff:1.1"
