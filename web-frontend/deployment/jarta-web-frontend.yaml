@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jarta-web-frontend
+spec:
+  selector:
+    app: jarta-web-frontend
+    tier: frontend
+  ports:
+    - protocol: "TCP"
+      port: 8890
+      targetPort: 8890
+  type: LoadBalancer
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: jarta-web-frontend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jarta-web-frontend
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: jarta-web-frontend
+          image: "jarta-web-frontend:1.2"
